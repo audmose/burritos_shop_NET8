@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "burritos_shop_NET8", "burritos_shop_NET8.csproj", "{CCE68ECA-096B-479E-A23B-A8DEB4E1178B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCE68ECA-096B-479E-A23B-A8DEB4E1178B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCE68ECA-096B-479E-A23B-A8DEB4E1178B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCE68ECA-096B-479E-A23B-A8DEB4E1178B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCE68ECA-096B-479E-A23B-A8DEB4E1178B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55DEDB32-5824-4590-A38B-B5D817CA9118}
+	EndGlobalSection
+EndGlobal

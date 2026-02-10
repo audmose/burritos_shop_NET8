@@ -1,0 +1,211 @@
+﻿using System;
+
+class Program
+{
+
+    /* Go to Tools > Options.
+     * In the search bar at the top left of the window, type IntelliCode.
+     * Find C# user model predictions (or "Whole line completions") and set it to Disabled.
+     * */
+
+    static void Main()
+    {
+        bool running = true;
+
+        while (running)
+        {
+            Console.Clear();
+
+            Console.WriteLine("=== Burritos Shop Break Even Points Calculator ===");
+            Console.WriteLine("1) Using For Loop");
+            Console.WriteLine("2) Using While Loop");
+            Console.WriteLine("3) Using Do-While Loop");
+            Console.WriteLine("4) Exit");
+            Console.Write("\nSelect an option: ");
+
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                using_for_loop();
+            }
+            else if (input == "2")
+            {
+                using_while_loop();
+            }
+            else if (input == "3")
+            {
+                using_dowhile_loop();
+            }
+            else if (input == "4")
+            {
+                Console.WriteLine("Exiting program...");
+                running = false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Press any key to try again.");
+                Console.ReadKey();
+            }
+        }
+    }
+
+    // --- Using For Loop ---
+
+    static void using_for_loop()
+    {
+
+        /* A food truck sells burritos for $9 each.
+         * Minimum cost per month is $1200 .
+         * The unit cost per burrito is $3.80.
+         * 
+         * Write a program that:
+         * 
+         * Starts from 0 burritos sold.
+         * Keeps increasing the number of burritos sold by 1 each time.
+         * Calculates revenue, cost, and profit (revenue - cost).
+         * Stops and reports the first number of burritos where the truck makes profit (revenue > cost).
+         * 
+         * Expected output:
+         * ...
+         * After selling 229 burritos: profit -9.20.
+         * After selling 230 burritos: profit -4.00
+         * ------------------------------------
+         * Success! Profit reached.
+         * Number of Burritos: 231 
+         * Revenue: $2,079.00 
+         * Cost: $2,077.80 
+         * Profit: $1.20
+         * 
+        */
+
+
+        Console.WriteLine("Calculating the break-even point using for loop ... ");
+        Console.WriteLine("------------------------------------");
+
+        // Please Enter Your For Loop Codes Here
+
+        // Variables that don't change values inside the loop can be defined outside for better readability
+        decimal unitprice = 9.00m;
+        decimal mincost = 1200.00m;
+        decimal unitcost = 3.80m;
+
+        // The loop starts at 0 and continues indefinitely (no upper bound)
+        // because we break the loop once profit is achieved.
+        for (int itemsold = 0; ; itemsold++)
+        {
+            decimal revenue = itemsold * unitprice;
+            decimal cost = mincost + (itemsold * unitcost);
+            decimal profit = revenue - cost;
+
+            // Check if we have made a profit (Revenue > Total Cost)
+            if (profit > 0)
+            {
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine($"Success! Profit reached.");
+                Console.WriteLine($"Number of Burritos: {itemsold}");
+                Console.WriteLine($"Revenue: {revenue:C2}");
+                Console.WriteLine($"Cost: {cost:C2}");
+                Console.WriteLine($"Profit: {profit:C2}");
+
+                // Stop the loop once the condition is met
+                break;
+
+            }
+            else
+            {
+                Console.WriteLine($"After selling {itemsold} burritos: profit {profit:F2}.");
+            }
+        }
+
+        Console.WriteLine("\nPress any key to return to menu...");
+        Console.ReadKey();
+    }
+
+    // --- Using While Loop ---
+
+    static void using_while_loop()
+    {
+        Console.WriteLine("Calculating the break-even point using while loop ... ");
+        Console.WriteLine("------------------------------------");
+
+        // Please Enter Your While Loop Codes Here
+
+        decimal unitprice = 9.00m;
+        decimal mincost = 1200.00m;
+        decimal unitcost = 3.80m;
+
+        int itemsold = 0;
+        decimal revenue = 0;
+        decimal cost = mincost; // Cost starts at the minimum cost
+        decimal profit = revenue - cost;
+
+        // The loop continues as long as we are NOT making a profit
+        while (profit <= 0)
+        {
+            Console.WriteLine($"After selling {itemsold} burritos: profit {profit:F2}.");
+
+            // Increment the count and recalculate for the next iteration
+            itemsold++;
+            revenue = itemsold * unitprice;
+            cost = mincost + (itemsold * unitcost);
+            profit = revenue - cost;
+        }
+
+        // Once the loop ends, it means profit > 0
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine($"Success! Profit reached.");
+        Console.WriteLine($"Number of Burritos: {itemsold}");
+        Console.WriteLine($"Revenue: {revenue:C2}");
+        Console.WriteLine($"Cost: {cost:C2}");
+        Console.WriteLine($"Profit: {profit:C2}");
+
+        Console.WriteLine("\nPress any key to return to menu...");
+        Console.ReadKey();
+
+    }
+
+    // --- Using Do-While Loop ---
+
+    static void using_dowhile_loop()
+    {
+        Console.WriteLine("Calculating the break-even point using do-while loop ... ");
+        Console.WriteLine("------------------------------------");
+
+        // Please Enter Your Do-While Loop Codes Here
+
+        decimal unitprice = 9.00m;
+        decimal mincost = 1200.00m;
+        decimal unitcost = 3.80m;
+
+        int itemsold = 0;
+        decimal revenue, cost, profit; // no need to specify the formula here since they are needed in the do-while loop anyways
+
+        do
+        {
+            // 1. Calculate the financials for the current amount sold
+            revenue = itemsold * unitprice;
+            cost = mincost + (itemsold * unitcost);
+            profit = revenue - cost;
+
+            // 2. Check if we still do no profit yet
+            if (profit <= 0)
+            {
+                Console.WriteLine($"After selling {itemsold} burritos: profit {profit:F2}.");
+                itemsold++; // Increment to try the next number in the next iteration
+            }
+
+        } while (profit <= 0); // 3. Condition checked AFTER the code block runs
+
+        // Once profit is > 0, the loop exits and we print the report
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine($"Success! Profit reached.");
+        Console.WriteLine($"Number of Burritos: {itemsold}");
+        Console.WriteLine($"Revenue: {revenue:C2}");
+        Console.WriteLine($"Cost: {cost:C2}");
+        Console.WriteLine($"Profit: {profit:C2}");
+
+        Console.WriteLine("\nPress any key to return to menu...");
+        Console.ReadKey();
+    }
+}
