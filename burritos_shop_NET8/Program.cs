@@ -83,13 +83,45 @@ class Program
         Console.WriteLine("Calculating the break-even point using for loop ... ");
         Console.WriteLine("------------------------------------");
 
-        // Please Enter Your For Loop Codes Here
+        decimal unitprice = 9.00m;
+        decimal mincost = 1200.00m;
+        decimal unitcost = 3.80m;
 
+        int itemsold = 0;
 
+        decimal revenue = 0.00m;
+        decimal cost = 0.00m;
+        decimal profit = 0.00m;
+
+        for (itemsold = 0; ; itemsold++)
+        {
+            revenue = unitprice * itemsold;
+            cost = mincost + (unitcost * itemsold);
+            profit = revenue - cost;
+
+            // Print intermediate results while still at loss (profit <= 0).
+            if (profit <= 0)
+            {
+                Console.WriteLine($"After selling {itemsold} burritos: profit {profit:F2}.");
+            }
+            else
+            {
+                // first itemsold where profit > 0 -> stop and report success
+                break;
+            }
+        }
+
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine("Success! Profit reached.");
+        Console.WriteLine($"Number of Burritos: {itemsold}");
+        Console.WriteLine($"Revenue: {revenue:C2}");
+        Console.WriteLine($"Cost: {cost:C2}");
+        Console.WriteLine($"Profit: {profit:C2}");
 
         Console.WriteLine("\nPress any key to return to menu...");
         Console.ReadKey();
-    }
+
+    } // <-- end using_for_loop
 
     // --- Using While Loop ---
 
@@ -104,7 +136,6 @@ class Program
 
         Console.WriteLine("\nPress any key to return to menu...");
         Console.ReadKey();
-
     }
 
     // --- Using Do-While Loop ---
